@@ -72,10 +72,15 @@
                                             <div class="ht-setting-trigger"><span>Setting</span></div>
                                             <div class="setting ht-setting">
                                                 <ul class="ht-setting-list">
-                                                    <li><a href="login-register.html">My Account</a></li>
+                                                    {% if user.is_authenticated %}
+                                                    <li><a href="#">Profile</a></li>
+                                                    <li><a href="#">{{user.username}}</a></li>
                                                     <li><a href="checkout.html">Checkout</a></li>
+                                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                                    {% else %}
                                                     <li><a href="{% url 'login' %}">Login</a></li>
                                                     <li><a href="{% url 'register' %}">Ragister</a></li>
+                                                    {% endif %}
                                                 </ul>
                                             </div>
                                         </li>
@@ -403,8 +408,13 @@
                                             <li class="hb-info f-right p-0 d-sm-none d-lg-block">
                                                 <span>6688 London, Greater London BAS 23JK, UK</span>
                                             </li>
+                                            {% if user.is_authenticated %}
+                                            <li><a style="cursor: pointer;">{{user.username}}</a></li>
+                                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                                            {% else %}
                                             <li><a href="{% url 'login' %}">Login</a></li>
                                             <li><a href="{% url 'register' %}">Register</a></li>
+                                            {% endif %}
                                             <!-- Header Bottom Menu Information Area End Here -->
                                         </ul>
                                     </nav>

@@ -18,7 +18,7 @@
 <div class="page-section mb-60">
     <div class="container">
         <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12" style="margin:auto">
-            <form method="POST">
+            <form method="POST" novalidate>
                 {% csrf_token %}
                 <div class="login-form">
                     {% if messages %}

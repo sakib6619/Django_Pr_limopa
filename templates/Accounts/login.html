@@ -19,7 +19,7 @@
     <div class="container">
         <div class="col-sm-12 col-md-12 col-xs-12 col-lg-6 mb-30" style="margin:auto">
             <!-- Login Form s-->
-            <form method="POST">
+            <form method="POST" novalidate>
                 {% csrf_token %}
                 {% if messages %}
                     <ul class="messages" style="color:red;font-size:20px;">
@@ -32,12 +32,12 @@
                     <h4 class="login-title">Login</h4>
                     <div class="row">
                         <div class="col-md-12 col-12 mb-20">
-                            <label>Email Address*</label>
-                            <input class="mb-0" type="email" placeholder="Email Address" name="Email">
+                            <label>User Name*</label>
+                            <input class="mb-0" type="text" placeholder="Email Address" name="username">
                         </div>
                         <div class="col-12 mb-20">
                             <label>Password</label>
-                            <input class="mb-0" type="password" placeholder="Password" name="Password">
+                            <input class="mb-0" type="password" placeholder="Password" name="password">
                         </div>
                         <div class="col-md-8">
                             <div class="check-box d-inline-block ml-0 ml-md-2 mt-10">
@@ -48,8 +48,11 @@
                         <div class="col-md-4 mt-10 mb-20 text-left text-md-right">
                             <a href="{% url 'forgotten' %}"> Forgotten password?</a>
                         </div>
+                        <div class="col-md-4 mt-10 mb-20 text-left text-md-right">
+                            <a href="{% url 'register' %}">don't have account</a>
+                        </div>
                         <div class="col-md-12">
-                            <button class="register-button mt-0">Login</button>
+                            <button type="submit" class="register-button mt-0">Login</button>
                         </div>
                     </div>
                 </div>
