@@ -20,8 +20,14 @@ def login(request):
         password = request.POST['password']
         user = auth.authenticate(username=username, password=password)
         if user:
-            auth.login(request, user)
-            return redirect('home')
+            prof = Profile.objects.get(user=user)
+            if prof.is_verified is True:
+                auth.login(request, user)
+                messages.success(request, "User Logged in.")
+                return redirect('home')
+            else:
+                messages.warning(request, "Please Check Your Email Verify your account...!")
+            return redirect('login')
         else:
             messages.warning(request, "Wrong input")
             return redirect('login')
@@ -98,7 +104,7 @@ def fail(request):
 
 def send_mail_registration(email, token):
     subject = "Account Verification link"
-    message = f'hi click the link for verify http://127.0.0.1:8000/accounts/verify/{token}'
+    message = f'hi click the link for verify http://127.0.0.1:8000/Accounts/verify/{token}'
     email_from = settings.EMAIL_HOST_USER
     recipient_list = [email]
     send_mail(subject, message, email_from, recipient_list)

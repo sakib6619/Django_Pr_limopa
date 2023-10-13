@@ -2144,11 +2144,9 @@ textarea:focus {
 }
 
 .hb-menu nav>ul>li>a::after {
-	content: "\f107";
 	position: absolute;
 	top: 8px;
 	right: 15px;
-	font-family: fontawesome;
 	font-size: 18px;
 	transition: all 0.3s ease-in-out;
 	color: #242424;
@@ -3736,8 +3734,6 @@ textarea:focus {
 }
 
 .category-menu-list>ul>li.right-menu>a::after {
-	content: "\f107";
-	font-family: FontAwesome;
 	float: right;
 	vertical-align: top;
 	transition: all 0.3s ease-in-out;
